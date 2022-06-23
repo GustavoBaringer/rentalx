@@ -8,7 +8,7 @@ import {
 class CategoriesRepository implements ICategoriesRepository {
     private repository: Repository<Category>;
 
-     constructor() {
+    constructor() {
         this.repository = getRepository(Category);
     }
 
@@ -39,8 +39,9 @@ class CategoriesRepository implements ICategoriesRepository {
      * @return Category | Undefined
      */
     async findByName(name: string): Promise<Category> {
-        const category = await this.repository.findOneBy({name: name});
-        console.log(category);
+        const category = await this.repository.findOne({
+            where: { name: name },
+        });
         return category;
     }
 }
