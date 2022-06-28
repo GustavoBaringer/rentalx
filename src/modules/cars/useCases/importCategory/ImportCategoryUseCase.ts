@@ -20,7 +20,9 @@ class ImportCategoryUseCase {
             const stream = fs.createReadStream(file.path);
             const categories: IImportCategory[] = [];
 
-            const parseFile = parse();
+            const parseFile = parse({
+                delimiter: ';',
+            });
 
             stream.pipe(parseFile);
 
@@ -44,10 +46,10 @@ class ImportCategoryUseCase {
 
         categories.map(async ({ name, description }) => {
             const categoryAlreadyExists =
-                this.categoriesRepository.findByName(name);
+                await this.categoriesRepository.findByName(name);
 
             if (!categoryAlreadyExists) {
-                this.categoriesRepository.create({
+                await this.categoriesRepository.create({
                     name: name,
                     description: description,
                 });
