@@ -27,13 +27,15 @@
         "eslint-plugin-import-helpers": "^1.2.1",
         "eslint-plugin-prettier": "^4.0.0",
         "prettier": "^2.6.2",
-        "ts-node-dev": "^1.1.8"
+        "ts-node-dev": "^1.1.8",
+        "@types/jsonwebtoken": "^8.5.8"
     },
     "dependencies": {
         "@types/bcryptjs": "^2.4.2",
         "bcryptjs": "^2.4.3",
         "csv-parse": "^5.0.4",
         "express": "^4.17.3",
+        "jsonwebtoken": "^8.5.1",
         "multer": "^1.4.4",
         "pg": "^8.7.3",
         "reflect-metadata": "^0.1.13",
