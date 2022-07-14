@@ -3,7 +3,7 @@ import { ICreateUserDTO } from "../../dtos/ICreateUsersDTO";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../IUsersRepository";
 
-class UsersReposity implements IUsersRepository {
+class UsersRepository implements IUsersRepository {
     private repository: Repository<User>;
 
     constructor() {
@@ -15,12 +15,16 @@ class UsersReposity implements IUsersRepository {
         password,
         email,
         driver_license,
+        avatar,
+        id,
     }: ICreateUserDTO): Promise<void> {
         const user = this.repository.create({
             name,
             password,
             email,
             driver_license,
+            avatar,
+            id,
         });
 
         await this.repository.save(user);
@@ -35,4 +39,4 @@ class UsersReposity implements IUsersRepository {
     }
 }
 
-export { UsersReposity };
+export { UsersRepository };
