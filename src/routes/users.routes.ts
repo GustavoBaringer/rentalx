@@ -17,6 +17,7 @@ usersRoutes.use(ensureAuthenticated);
 usersRoutes.post("/", createUserController.handle);
 usersRoutes.patch(
     "/avatar",
+    ensureAuthenticated,
     uploadAvatar.single("avatar"),
     updateUserAvatarController.handle
 );
